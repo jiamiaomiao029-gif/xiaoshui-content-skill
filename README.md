@@ -1,14 +1,65 @@
 # 小水同学的 Claude Code Skills 合集
 
-包含两个核心 skill：
+包含三个核心 skill：
 1. **xiaoshui-content** - 内容创作诊断
 2. **dbs-xsz-chatroom** - 商业决策聊天室
+3. **xiaoshui-update** - 一键自动更新
+
+---
+
+## 安装方法
+
+### 方法一：一键安装（推荐）
+
+```bash
+cd ~/.claude/skills
+git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git
+cd ~/.claude/skills
+ln -s xiaoshui-content-skill/xiaoshui-content xiaoshui-content
+ln -s xiaoshui-content-skill/xiaoshui-update xiaoshui-update
+ln -s xiaoshui-content-skill/dbs-xsz-chatroom dbs-xsz-chatroom
+```
+
+安装完成后，以后更新只需要在 Claude Code 中输入：
+
+```
+/xiaoshui-update
+```
+
+### 方法二：手动安装
+
+1. 下载本仓库的所有文件
+2. 将 `xiaoshui-content`、`xiaoshui-update` 和 `dbs-xsz-chatroom` 文件夹分别复制到 `~/.claude/skills/` 目录下
+
+---
+
+## 使用方式
+
+安装后，在 Claude Code 中直接输入：
+
+| Skill | 触发方式 |
+|---|---|
+| 内容创作诊断 | `/xiaoshui-content` |
+| 商业决策聊天室 | `/dbs-xsz-chatroom` |
+| 自动更新 | `/xiaoshui-update` |
+
+或者直接描述你的问题，比如：
+- "帮我做内容"、"不知道发什么"、"内容没人看"
+- "我在纠结要不要..."、"帮我分析一下这个决策"
 
 ---
 
 ## 1. xiaoshui-content - 内容创作诊断
 
 一个帮助自媒体创作者识别真需求、挖掘潜意识阻碍，用完整方法论陪伴式完成内容创作的 Claude Code skill。
+
+### 适用场景
+
+- 不知道做什么内容
+- 有想法但不知道怎么做成好内容
+- 做了内容但数据很差
+- 有粉丝但不知道怎么变现
+- 想建立完整的内容创作体系
 
 ### 功能特点
 
@@ -59,42 +110,6 @@
 - 粗茶淡饭、平静推进（只盯具体细节，不幻想结果）
 - 复利效应建立（固定时间、形成 SOP）
 
-#### 4. 补充工具
-
-- **语料库管理**：从微信/flomo 提取，定期复盘更新
-- **爆款拆解**：分析开头钩子、故事结构、情绪点
-- **内容类型判断**：判断是流量/粉丝/变现内容，预测用户行为
-- **实践论追踪**：记录每次实践的数据和新认识
-
-### 安装方法
-
-#### 方法一：直接克隆到 skills 目录
-
-```bash
-cd ~/.claude/skills
-git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git xiaoshui-content
-```
-
-#### 方法二：手动下载
-
-1. 下载本仓库的所有文件
-2. 将 `xiaoshui-content` 文件夹复制到 `~/.claude/skills/` 目录下
-
-### 使用方式
-
-安装后，在 Claude Code 中使用：
-
-```
-/xiaoshui-content
-/小水内容诊断
-```
-
-或者直接说：
-- "帮我做内容"
-- "不知道发什么"
-- "内容没人看"
-- "怎么变现"
-
 ### 方法论来源
 
 基于真实创作者的 549 条实战笔记，融合：
@@ -103,47 +118,20 @@ git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git xiaos
 - don 哥思维（对失败的好奇、情绪问题 vs 事实问题）
 - 谢胜子思维（粗茶淡饭、平静推进、复利效应）
 
-### 适用场景
-
-- 不知道做什么内容
-- 有想法但不知道怎么做成好内容
-- 做了内容但数据很差
-- 有粉丝但不知道怎么变现
-- 想建立完整的内容创作体系
-
 ---
 
-## 2. xiaoshui-update - 自动更新工具
-
-一键从 GitHub 拉取最新版本，自动安装/更新所有 skills。
-
-### 功能特点
-
-- 自动检测本地是否已安装
-- 从 GitHub 拉取最新版本
-- 自动创建软链接到 skills 目录
-- 显示更新日志和变更内容
-
-### 使用方式
-
-```
-/xiaoshui-update
-/更新小水skills
-```
-
-或者直接说：
-- "更新小水的技能"
-- "拉取最新版本"
-
----
-
-## 3. dbs-xsz-chatroom - 商业决策聊天室
+## 2. dbs-xsz-chatroom - 商业决策聊天室
 
 让谢胜子和 don 哥同时分析你的商业决策问题，互相指出逻辑谬误，帮你看清盲区。
 
-### 功能特点
+### 适用场景
 
-#### 两轮对话机制
+- 面临重要商业决策，不确定该怎么选
+- 想要多角度审视自己的想法
+- 需要有人指出思维盲区和逻辑漏洞
+- 想听听"长期主义"和"快速试错"两种思维的碰撞
+
+### 功能特点
 
 **第一轮：各自分析**
 - 谢胜子：从长期主义、粗茶淡饭、平静推进的角度分析
@@ -158,24 +146,16 @@ git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git xiaos
 - 指出互补点和冲突点
 - 给出可执行的综合建议
 
-### 使用方式
+---
 
-```
-/dbs-xsz-chatroom
-/商业决策
-```
+## 3. xiaoshui-update - 自动更新工具
 
-或者直接说：
-- "我在纠结要不要..."
-- "帮我分析一下这个决策"
-- "商业决策聊天室"
+一键从 GitHub 拉取最新版本，自动安装/更新所有 skills。
 
-### 适用场景
-
-- 面临重要商业决策，不确定该怎么选
-- 想要多角度审视自己的想法
-- 需要有人指出思维盲区和逻辑漏洞
-- 想听听"长期主义"和"快速试错"两种思维的碰撞
+- 自动检测本地是否已安装
+- 从 GitHub 拉取最新版本
+- 自动创建软链接到 skills 目录
+- 显示更新日志和变更内容
 
 ---
 
@@ -202,42 +182,6 @@ xiaoshui-content-skill/
 - 先用 `dbs-diagnosis` 诊断商业模式（战略层面）
 - 用 `dbs-xsz-chatroom` 做商业决策（决策层面）
 - 再用 `xiaoshui-content` 落地到具体内容创作（执行层面）
-
-## 安装方法
-
-### 方法一：使用自动更新工具（推荐）
-
-1. 先手动安装一次：
-```bash
-cd ~/.claude/skills
-git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git
-```
-
-2. 创建软链接：
-```bash
-cd ~/.claude/skills
-ln -s xiaoshui-content-skill/xiaoshui-content xiaoshui-content
-ln -s xiaoshui-content-skill/xiaoshui-update xiaoshui-update
-ln -s xiaoshui-content-skill/dbs-xsz-chatroom dbs-xsz-chatroom
-```
-
-3. 以后更新只需要：
-```
-/xiaoshui-update
-```
-
-### 方法二：手动安装
-
-1. 下载本仓库的所有文件
-2. 将 `xiaoshui-content`、`xiaoshui-update` 和 `dbs-xsz-chatroom` 文件夹分别复制到 `~/.claude/skills/` 目录下
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-## 许可证
-
-MIT License
 
 ## 作者
 
