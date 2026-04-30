@@ -1,9 +1,10 @@
 # 小水同学的 Claude Code Skills 合集
 
-包含三个核心 skill：
+包含三个核心 skill + 一个工具：
 1. **xiaoshui-content** - 内容创作诊断
 2. **dbs-xsz-chatroom** - 商业决策聊天室
 3. **xiaoshui-update** - 一键自动更新
+4. **html2md** - HTML 转 Markdown（附件工具）
 
 ---
 
@@ -42,6 +43,7 @@ ln -s xiaoshui-content-skill/dbs-xsz-chatroom dbs-xsz-chatroom
 | 内容创作诊断 | `/xiaoshui-content` |
 | 商业决策聊天室 | `/dbs-xsz-chatroom` |
 | 自动更新 | `/xiaoshui-update` |
+| HTML 转 Markdown | `/html2md <文件路径>` |
 
 或者直接描述你的问题，比如：
 - "帮我做内容"、"不知道发什么"、"内容没人看"
@@ -159,6 +161,17 @@ ln -s xiaoshui-content-skill/dbs-xsz-chatroom dbs-xsz-chatroom
 
 ---
 
+## 4. html2md - HTML 转 Markdown 工具
+
+将 HTML 文件转换为干净的 Markdown 格式。最初用于把 flomo 导出的笔记转成 Markdown，也适用于任意 HTML 文件。
+
+```
+/html2md <html文件路径>
+/html2md <html文件路径> <输出md文件路径>
+```
+
+---
+
 ## 文件结构
 
 ```
@@ -171,6 +184,9 @@ xiaoshui-content-skill/
 │   ├── skill.md          # Skill 说明文档
 │   └── agent.md          # Agent 行为指令
 ├── dbs-xsz-chatroom/
+│   ├── skill.md          # Skill 说明文档
+│   └── agent.md          # Agent 行为指令
+├── html2md/
 │   ├── skill.md          # Skill 说明文档
 │   └── agent.md          # Agent 行为指令
 ├── README.md             # 本文件
