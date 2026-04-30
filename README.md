@@ -113,7 +113,31 @@ git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git xiaos
 
 ---
 
-## 2. dbs-xsz-chatroom - 商业决策聊天室
+## 2. xiaoshui-update - 自动更新工具
+
+一键从 GitHub 拉取最新版本，自动安装/更新所有 skills。
+
+### 功能特点
+
+- 自动检测本地是否已安装
+- 从 GitHub 拉取最新版本
+- 自动创建软链接到 skills 目录
+- 显示更新日志和变更内容
+
+### 使用方式
+
+```
+/xiaoshui-update
+/更新小水skills
+```
+
+或者直接说：
+- "更新小水的技能"
+- "拉取最新版本"
+
+---
+
+## 3. dbs-xsz-chatroom - 商业决策聊天室
 
 让谢胜子和 don 哥同时分析你的商业决策问题，互相指出逻辑谬误，帮你看清盲区。
 
@@ -163,6 +187,9 @@ xiaoshui-content-skill/
 │   ├── skill.md          # Skill 说明文档
 │   ├── agent.md          # Agent 行为指令
 │   └── knowledge.md      # 核心方法论知识库
+├── xiaoshui-update/
+│   ├── skill.md          # Skill 说明文档
+│   └── agent.md          # Agent 行为指令
 ├── dbs-xsz-chatroom/
 │   ├── skill.md          # Skill 说明文档
 │   └── agent.md          # Agent 行为指令
@@ -178,21 +205,31 @@ xiaoshui-content-skill/
 
 ## 安装方法
 
-### 方法一：直接克隆（推荐）
+### 方法一：使用自动更新工具（推荐）
 
+1. 先手动安装一次：
 ```bash
 cd ~/.claude/skills
 git clone https://github.com/jiamiaomiao029-gif/xiaoshui-content-skill.git
-cd xiaoshui-content-skill
-# 创建软链接到 skills 目录
-ln -s $(pwd)/xiaoshui-content ~/.claude/skills/xiaoshui-content
-ln -s $(pwd)/dbs-xsz-chatroom ~/.claude/skills/dbs-xsz-chatroom
 ```
 
-### 方法二：手动复制
+2. 创建软链接：
+```bash
+cd ~/.claude/skills
+ln -s xiaoshui-content-skill/xiaoshui-content xiaoshui-content
+ln -s xiaoshui-content-skill/xiaoshui-update xiaoshui-update
+ln -s xiaoshui-content-skill/dbs-xsz-chatroom dbs-xsz-chatroom
+```
+
+3. 以后更新只需要：
+```
+/xiaoshui-update
+```
+
+### 方法二：手动安装
 
 1. 下载本仓库的所有文件
-2. 将 `xiaoshui-content` 和 `dbs-xsz-chatroom` 文件夹分别复制到 `~/.claude/skills/` 目录下
+2. 将 `xiaoshui-content`、`xiaoshui-update` 和 `dbs-xsz-chatroom` 文件夹分别复制到 `~/.claude/skills/` 目录下
 
 ## 贡献
 
